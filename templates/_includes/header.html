@@ -1,0 +1,17 @@
+<header class="d-flex justify-content-center py-3">
+  <ul class="nav nav-pills">
+    {% with request.resolver_match.url_name as uri %}
+      <li class="nav-item">
+        <a href="{% url 'create_product' %}" class="nav-link {% if uri == 'create_product' %}active{% endif %}">Add New
+          Product</a>
+      </li>
+      <li class="nav-item">
+        <a href="{% url 'product_list' %}"
+           class="nav-link {% if uri == 'product_list' %}active{% endif %}">Products</a>
+      </li>
+      <li class="nav-item">
+        <a href="{% url 'analytics' %}" class="nav-link {% if uri == 'analytics' %}active{% endif %}">Analytics</a>
+      </li>
+      </ul>
+    {% endwith %}
+</header>

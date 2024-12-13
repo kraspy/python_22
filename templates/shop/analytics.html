@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Аналитика</h2>
+
+  <div class="card mb-3">
+    <div class="card-header">
+      Общая стоимость товаров по категориям:
+    </div>
+    <div class="card-body">
+      <blockquote class="blockquote mb-0">
+        <ul>
+          {% for category in products_sum_by_categories %}
+            <li>{{ category.name }}: {{ category.prod_sum }}</li>
+          {% endfor %}
+        </ul>
+      </blockquote>
+    </div>
+  </div>
+  <div class="card mb-3">
+    <div class="card-header">
+      Количество товаров в категориях:
+    </div>
+    <div class="card-body">
+      <blockquote class="blockquote mb-0">
+        <ul>
+          {% for category in total_price_by_categories %}
+            <li>{{ category.name }}: {{ category.prod_count }}</li>
+          {% endfor %}
+        </ul>
+      </blockquote>
+    </div>
+  </div>
+  <div class="card mb-3">
+    <div class="card-header">
+      Средняя цена товаров в категории:
+    </div>
+    <div class="card-body">
+      <blockquote class="blockquote mb-0">
+        <ul>
+          {% for category in avg_price_by_categories %}
+            <li>{{ category.name }}: {{ category.avg_price }}</li>
+          {% endfor %}
+        </ul>
+      </blockquote>
+    </div>
+  </div>
+  <div class="card mb-3">
+    <div class="card-header">
+      Минимальная цена товаров в категориях:
+    </div>
+    <div class="card-body">
+      <blockquote class="blockquote mb-0">
+        <ul>
+          {% for category in min_price_by_categories %}
+            <li>{{ category.name }}: {{ category.min_price }}</li>
+          {% endfor %}
+        </ul>
+      </blockquote>
+    </div>
+  </div>
+  <div class="card mb-3">
+    <div class="card-header">
+      Максимальная цена товаров в категориях:
+    </div>
+    <div class="card-body">
+      <blockquote class="blockquote mb-0">
+        <ul>
+          {% for category in max_price_by_categories %}
+            <li>{{ category.name }}: {{ category.max_price }}</li>
+          {% endfor %}
+        </ul>
+      </blockquote>
+    </div>
+  </div>
+{% endblock %}
