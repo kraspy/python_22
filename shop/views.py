@@ -41,7 +41,7 @@ def product_list(request):
 
 # Creating a new product
 def create_product(request):
-    form = ProductForm(request.POST or None)
+    form = ProductForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         form.save()
         return redirect('product_list')
@@ -57,7 +57,7 @@ def product_detail(request, pk):
 # Updating an existing product
 def update_product(request, pk):
     product = get_object_or_404(Product, pk=pk)
-    form = ProductForm(request.POST or None, instance=product)
+    form = ProductForm(request.POST or None, request.FILES or None, instance=product)
     if form.is_valid():
         form.save()
         return redirect('product_list')
